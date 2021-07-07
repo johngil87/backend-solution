@@ -21,7 +21,8 @@ public class ActualizarQuestionRouter {
          return route(PUT("/editarRecurso").and(accept(MediaType.APPLICATION_JSON)),
                  request -> request.bodyToMono(QuestionDTO.class)
                          .flatMap(questionDTO -> useCaseActulizarQuestion.actualizarQuestion(questionDTO)
-                                 .flatMap(result -> ServerResponse.ok()
+                                 .flatMap(result ->
+                                         ServerResponse.ok()
                                          .contentType(MediaType.APPLICATION_JSON)
                                          .bodyValue(result))
                          ));

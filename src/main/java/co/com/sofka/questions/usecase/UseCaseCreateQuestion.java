@@ -24,6 +24,7 @@ public class UseCaseCreateQuestion {
     //Crear un Question
 
     public Mono<QuestionDTO> insertar(QuestionDTO questionDTO) {
-        return questionRepository.save(questionMapper.mapperToQuestion(null).apply(questionDTO)).map(questionMapper.mapQuestionToDTO());
+        return questionRepository.save(questionMapper.mapperToQuestion(null).apply(questionDTO))
+                .map(questionMapper.mapQuestionToDTO());
     }
 }
